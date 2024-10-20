@@ -69,8 +69,7 @@ class _ProgressIndicatorSkillState extends State<ProgressIndicatorSkill>
     super.initState();
     controller = AnimationController(
         duration: const Duration(milliseconds: 1000), vsync: this);
-    animation = Tween<double>(
-            begin: 0.0, end: (widget.skillData.percent as double) / 100)
+    animation = Tween<double>(begin: 0.0, end: (widget.skillData.percent) / 100)
         .animate(controller!)
       ..addListener(() {
         setState(() {});

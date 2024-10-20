@@ -1,16 +1,27 @@
-# portfolio_web
+# portfolio_web_flutter
 
-A new Flutter project.
+Flutter Portfolio Project that includes such as custom menu, profile info, skills. and also buit with flutter build in animation.
 
-## Getting Started
+## Project Demo
 
-This project is a starting point for a Flutter application.
+# Home Screen
 
-A few resources to get you started if this is your first Flutter project:
+![alt text](https://i.imgur.com/a36nlnN.png)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+# Menu Screen
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![alt text](https://i.imgur.com/lMwmDmT.png)
+
+# About Screen
+
+![alt text](https://i.imgur.com/L0qPZFU.png)
+
+# Projects Screen
+
+# About Screen
+
+## Author
+
+[PyaeHeinTun](https://pyaeheintun.github.io)
+
+- [View Live](https://docs.flutter.dev/get-started/codelab)
