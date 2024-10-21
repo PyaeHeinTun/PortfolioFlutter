@@ -6,6 +6,7 @@ import 'package:portfolio_web/shared_component/description_text.dart';
 import 'package:portfolio_web/screen/home/component/job_title.dart';
 import 'package:portfolio_web/controller/menu_controller.dart';
 import 'package:provider/provider.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -36,15 +37,36 @@ class HomeScreen extends StatelessWidget {
           ),
           Consumer<MenuDrawerController>(
             builder: (context, menuController, _) {
-              return menuController.isOpenMenu
-                  ? const SizedBox()
-                  : const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        ButtonWidget(buttonText: "More About Me"),
-                        ButtonWidget(buttonText: "Download CV"),
-                      ],
-                    );
+              return Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  ButtonWidget(
+                    buttonText: "More About Me",
+                    callBackFun: () {
+                      Provider.of<MenuDrawerController>(context, listen: false)
+                          .toggleMenu();
+                      Provider.of<MenuDrawerController>(context, listen: false)
+                          .changeMenuIndex(1);
+                      // Future.delayed(const Duration(milliseconds: 500))
+                      //     .then((_) {
+                      //   Provider.of<MenuDrawerController>(context,
+                      //           listen: false)
+                      //       .toggleMenu();
+                      // });
+                    },
+                  ),
+                  ButtonWidget(
+                    buttonText: "Download CV",
+                    callBackFun: () async {
+                      final Uri url =
+                          Uri.parse(myData['main_content']['cv_url']);
+                      if (!await launchUrl(url)) {
+                        throw Exception('Could not launch $url');
+                      }
+                    },
+                  ),
+                ],
+              );
             },
           ),
         ],

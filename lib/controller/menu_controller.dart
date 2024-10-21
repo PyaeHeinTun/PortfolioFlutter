@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class MenuDrawerController extends ChangeNotifier {
   int selectedMenuIndex = 0;
   bool isOpenMenu = false;
+  bool isMenuLoading = false;
 
   AnimationController? drawerAnimationController;
   Animation<double>? drawerAnimation;
@@ -20,6 +21,12 @@ class MenuDrawerController extends ChangeNotifier {
     drawerAnimation = Tween<double>(begin: start, end: end)
         .animate(drawerAnimationController!)
       ..addListener(() {
+        if (drawerAnimationController!.isAnimating) {
+          isMenuLoading = true;
+        }
+        if (drawerAnimationController!.isCompleted) {
+          isMenuLoading = false;
+        }
         notifyListeners();
       });
   }
@@ -34,6 +41,12 @@ class MenuDrawerController extends ChangeNotifier {
     contentAnimation = Tween<double>(begin: start, end: end)
         .animate(contentAnimationController!)
       ..addListener(() {
+        if (contentAnimationController!.isAnimating) {
+          isMenuLoading = true;
+        }
+        if (contentAnimationController!.isCompleted) {
+          isMenuLoading = false;
+        }
         notifyListeners();
       });
   }
@@ -51,6 +64,10 @@ class MenuDrawerController extends ChangeNotifier {
     isOpenMenu = false;
     notifyListeners();
 
+    _reverseAnimationDrawer();
+  }
+
+  void _reverseAnimationDrawer() {
     drawerAnimationController!.duration = const Duration(milliseconds: 800);
     contentAnimationController!.duration = const Duration(milliseconds: 500);
 
@@ -58,20 +75,20 @@ class MenuDrawerController extends ChangeNotifier {
     contentAnimationController!.reverse();
   }
 
+  void _forwardAnimationDrawer() {
+    drawerAnimationController!.duration = const Duration(milliseconds: 0);
+    contentAnimationController!.duration = const Duration(milliseconds: 500);
+
+    drawerAnimationController!.forward();
+    contentAnimationController!.forward();
+  }
+
   void toggleMenu() {
     isOpenMenu = !isOpenMenu;
     if (isOpenMenu) {
-      drawerAnimationController!.duration = const Duration(milliseconds: 0);
-      contentAnimationController!.duration = const Duration(milliseconds: 500);
-
-      drawerAnimationController!.forward();
-      contentAnimationController!.forward();
+      _forwardAnimationDrawer();
     } else {
-      drawerAnimationController!.duration = const Duration(milliseconds: 800);
-      contentAnimationController!.duration = const Duration(milliseconds: 500);
-
-      drawerAnimationController!.reverse();
-      contentAnimationController!.reverse();
+      _reverseAnimationDrawer();
     }
     notifyListeners();
   }

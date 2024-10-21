@@ -22,6 +22,4 @@ Flutter Portfolio Project that includes such as custom menu, profile info, skill
 
 ## Author
 
-[PyaeHeinTun](https://pyaeheintun.github.io)
-
-- [View Live](https://docs.flutter.dev/get-started/codelab)
+[View Live On PyaeHeinTun.github.io](https://pyaeheintun.github.io)

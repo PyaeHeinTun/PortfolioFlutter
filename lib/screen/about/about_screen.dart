@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio_web/my_data.dart';
+import 'package:portfolio_web/screen/about/component/education_widget.dart';
 import 'package:portfolio_web/screen/about/component/info_widget.dart';
 import 'package:portfolio_web/screen/about/component/skill_widget.dart';
 import 'package:portfolio_web/screen/home/component/gretting_name.dart';
@@ -42,7 +43,18 @@ class AboutScreen extends StatelessWidget {
             height: 10,
           ),
           const SkillWidget(),
+          const SizedBox(
+            height: 30,
+          ),
+          const SectionTitleText(text: "Education"),
           // Education
+          const SizedBox(
+            height: 10,
+          ),
+          const EducationWidget(),
+          const SizedBox(
+            height: 50,
+          ),
         ],
       ),
     );
