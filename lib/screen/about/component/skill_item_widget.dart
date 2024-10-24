@@ -79,7 +79,7 @@ class _ProgressIndicatorSkillState extends State<ProgressIndicatorSkill>
 
   @override
   void dispose() {
-    controller!.stop();
+    controller!.dispose();
     super.dispose();
   }
 

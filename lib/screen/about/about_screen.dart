@@ -51,7 +51,20 @@ class AboutScreen extends StatelessWidget {
           const SizedBox(
             height: 10,
           ),
-          const EducationWidget(),
+          const EducationWidget(
+            isEducation: true,
+          ),
+
+          const SizedBox(
+            height: 30,
+          ),
+          const SectionTitleText(text: "Work History"),
+          const SizedBox(
+            height: 10,
+          ),
+          const EducationWidget(
+            isEducation: false,
+          ),
           const SizedBox(
             height: 50,
           ),

@@ -62,14 +62,13 @@ class MenuDrawerController extends ChangeNotifier {
   void changeMenuIndex(int index) {
     selectedMenuIndex = index;
     isOpenMenu = false;
-    notifyListeners();
-
     _reverseAnimationDrawer();
+    notifyListeners();
   }
 
   void _reverseAnimationDrawer() {
-    drawerAnimationController!.duration = const Duration(milliseconds: 800);
-    contentAnimationController!.duration = const Duration(milliseconds: 500);
+    drawerAnimationController!.duration = const Duration(milliseconds: 150);
+    contentAnimationController!.duration = const Duration(milliseconds: 100);
 
     drawerAnimationController!.reverse();
     contentAnimationController!.reverse();
@@ -77,10 +76,14 @@ class MenuDrawerController extends ChangeNotifier {
 
   void _forwardAnimationDrawer() {
     drawerAnimationController!.duration = const Duration(milliseconds: 0);
-    contentAnimationController!.duration = const Duration(milliseconds: 500);
+    contentAnimationController!.duration = const Duration(milliseconds: 100);
 
     drawerAnimationController!.forward();
     contentAnimationController!.forward();
+  }
+
+  void notifyAgain() {
+    notifyListeners();
   }
 
   void toggleMenu() {

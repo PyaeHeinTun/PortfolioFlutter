@@ -30,29 +30,43 @@ Map<String, dynamic> myData = {
       InfoData(name: "Status", data: "Single"),
     ],
     "skill_list": [
-      SkillData(name: "JS", percent: 68),
-      SkillData(name: "Java", percent: 90),
+      SkillData(name: "JS", percent: 70),
+      SkillData(name: "Java", percent: 40),
       SkillData(name: "Python", percent: 80),
       SkillData(name: "Dart", percent: 80),
     ],
     "education_list": [
       EducationData(
-        year: "2016-2023",
-        name: "Bechalor of Engineering",
+        year: "2003-2008",
+        name: "Primary School of Kawlin",
         description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled",
+            "I started primary school at the age of 5 years and completed basic primary school at the age of 10.",
       ),
       EducationData(
-        year: "2016-2023",
-        name: "Bechalor of Engineering",
+        year: "2008-2014",
+        name: "High School of Kawlin",
         description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled",
+            "After completing primary school, I directly joined to high school at the age of 10. In Matriculation Examination, I got total score of 481, with 4 excellent subjects(Maths,Physis,Chemistry,Geography).",
       ),
       EducationData(
-        year: "2016-2023",
-        name: "Bechalor of Engineering",
+        year: "2014-2020",
+        name: "Mandalay Technological University",
         description:
-            "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled",
+            "I have studied Mechatronics Engineering at Mandalay Technological University. Since then, I have interested in programming. At 2020 I am final year student, COVID 19 have started since then i have suspended university.",
+      ),
+      EducationData(
+        year: "2022-2023",
+        name: "Mandalay Technological University",
+        description:
+            "At 2022 Dec, I enrolled again as final year student and graduated at 2023. My graduation thesis title is 'Traffic Sign Detection and Recognition System'. If you are interested i have pushed that code into github.",
+      ),
+    ],
+    "workHistory_list": [
+      EducationData(
+        year: "25 Apirl 2022",
+        name: "Full Stack Developer",
+        description:
+            "After I have suspended university, i worked as Full Stack Developer for around 6 months. I have used Flutter with dart and NodeJS with Javascript",
       ),
     ],
   },
@@ -79,16 +93,18 @@ Map<String, dynamic> myData = {
   "project_content": [
     ProjectData(
       index: 0,
-      projectName: "Portfolio Project",
+      projectName: "Crypto Trade Bot",
       projectDescription:
-          "This Project is demo portfolio project using Flutter.",
+          "I named this bot as BETABOT. I process with the power of Machine Learning. It predict upcomming candles and place position according to the Machine Learning.",
       usedTech: [
-        "Flutter",
-        "Dart",
+        "Python",
+        "Pandas",
+        "Numpy",
+        "Sklearn",
       ],
-      img: "https://i.imgur.com/a36nlnN.png",
-      sourceCode: "https://github.com/PyaeHeinTun/PortfolioFlutter",
-      demoLink: "https://pyaeheintun.github.io/",
+      img: "",
+      sourceCode: "https://github.com/PyaeHeinTun/beta_bot.git",
+      demoLink: "https://github.com/PyaeHeinTun/beta_bot.git",
     ),
     ProjectData(
       index: 1,
@@ -98,7 +114,27 @@ Map<String, dynamic> myData = {
       usedTech: ["Nodejs", "Javascript"],
       img: "",
       sourceCode: "https://github.com/PyaeHeinTun/book_server_nodejs",
-      demoLink: "",
+      demoLink: "https://github.com/PyaeHeinTun/book_server_nodejs",
+    ),
+    ProjectData(
+      index: 2,
+      projectName: "Traffic Sign Detection and Recognition System",
+      projectDescription:
+          "This project is my graduation thesis. It extract traffic sign based on Color Detection and recognize with CNN.",
+      usedTech: ["Python", "OpenCV"],
+      img: "",
+      sourceCode: "https://github.com/PyaeHeinTun/traffic_sign_recognition.git",
+      demoLink: "https://github.com/PyaeHeinTun/traffic_sign_recognition.git",
+    ),
+    ProjectData(
+      index: 3,
+      projectName: "Portfolio App",
+      projectDescription:
+          "This is portfolio project written in Flutter. Flutter is a cross platform framework, So I can be built for Android,IOS,Linux,Windows and Web.",
+      usedTech: ["Flutter", "Dart"],
+      img: "",
+      sourceCode: "https://github.com/PyaeHeinTun/PortfolioFlutter.git",
+      demoLink: "https://github.com/PyaeHeinTun/PortfolioFlutter.git",
     ),
   ],
   "colors": {
