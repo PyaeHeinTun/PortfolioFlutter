@@ -64,9 +64,11 @@ class MenuDrawerController extends ChangeNotifier {
 
     drawerAnimationController!.reverse().then((_) {
       isMenuLoading = false;
+      notifyAgain();
     });
     contentAnimationController!.reverse().then((_) {
       isMenuLoading = false;
+      notifyAgain();
     });
   }
 
@@ -76,9 +78,11 @@ class MenuDrawerController extends ChangeNotifier {
 
     drawerAnimationController!.forward().then((_) {
       isMenuLoading = false;
+      notifyAgain();
     });
     contentAnimationController!.forward().then((_) {
       isMenuLoading = false;
+      notifyAgain();
     });
   }
 
