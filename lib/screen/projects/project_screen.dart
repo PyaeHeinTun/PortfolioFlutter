@@ -13,7 +13,10 @@ class ProjectScreen extends StatelessWidget {
     return Stack(
       children: [
         // Main Content
-        const ProjectContent(),
+        SizedBox(
+          height: height,
+          child: const ProjectContent(),
+        ),
 
         // Pagination Button
         PaginationButtons(
@@ -22,7 +25,7 @@ class ProjectScreen extends StatelessWidget {
                 .changePageIndexPrevious();
           },
           icon: Icons.arrow_back,
-          top: height / 1.75,
+          bottom: 20,
           left: 0,
         ),
 
@@ -32,7 +35,7 @@ class ProjectScreen extends StatelessWidget {
                 .changePageIndexNext();
           },
           icon: Icons.arrow_forward,
-          top: height / 1.75,
+          bottom: 20,
           right: 0,
         ),
       ],

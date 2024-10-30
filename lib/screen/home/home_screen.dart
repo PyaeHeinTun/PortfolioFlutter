@@ -37,6 +37,9 @@ class HomeScreen extends StatelessWidget {
           ),
           Consumer<MenuDrawerController>(
             builder: (context, menuController, _) {
+              if (menuController.isMenuLoading || menuController.isOpenMenu) {
+                return const SizedBox();
+              }
               return Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [

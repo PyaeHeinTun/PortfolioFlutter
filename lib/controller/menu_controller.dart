@@ -17,18 +17,14 @@ class MenuDrawerController extends ChangeNotifier {
       required double end}) {
     drawerAnimationController = AnimationController(
       vsync: ticker,
-    );
-    drawerAnimation = Tween<double>(begin: start, end: end)
-        .animate(drawerAnimationController!)
-      ..addListener(() {
+    )..addListener(() {
         if (drawerAnimationController!.isAnimating) {
           isMenuLoading = true;
         }
-        if (drawerAnimationController!.isCompleted) {
-          isMenuLoading = false;
-        }
         notifyListeners();
       });
+    drawerAnimation = Tween<double>(begin: start, end: end)
+        .animate(drawerAnimationController!);
   }
 
   void setUpContentAnimation(
@@ -37,18 +33,14 @@ class MenuDrawerController extends ChangeNotifier {
       required double end}) {
     contentAnimationController = AnimationController(
       vsync: ticker,
-    );
-    contentAnimation = Tween<double>(begin: start, end: end)
-        .animate(contentAnimationController!)
-      ..addListener(() {
+    )..addListener(() {
         if (contentAnimationController!.isAnimating) {
           isMenuLoading = true;
         }
-        if (contentAnimationController!.isCompleted) {
-          isMenuLoading = false;
-        }
         notifyListeners();
       });
+    contentAnimation = Tween<double>(begin: start, end: end)
+        .animate(contentAnimationController!);
   }
 
   void disposeDrawerAnimation() {
@@ -70,16 +62,24 @@ class MenuDrawerController extends ChangeNotifier {
     drawerAnimationController!.duration = const Duration(milliseconds: 150);
     contentAnimationController!.duration = const Duration(milliseconds: 100);
 
-    drawerAnimationController!.reverse();
-    contentAnimationController!.reverse();
+    drawerAnimationController!.reverse().then((_) {
+      isMenuLoading = false;
+    });
+    contentAnimationController!.reverse().then((_) {
+      isMenuLoading = false;
+    });
   }
 
   void _forwardAnimationDrawer() {
     drawerAnimationController!.duration = const Duration(milliseconds: 0);
     contentAnimationController!.duration = const Duration(milliseconds: 100);
 
-    drawerAnimationController!.forward();
-    contentAnimationController!.forward();
+    drawerAnimationController!.forward().then((_) {
+      isMenuLoading = false;
+    });
+    contentAnimationController!.forward().then((_) {
+      isMenuLoading = false;
+    });
   }
 
   void notifyAgain() {

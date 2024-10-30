@@ -86,7 +86,7 @@ Map<String, dynamic> myData = {
       ContactData(
         icon: Icons.telegram,
         name: "Message Me On",
-        data: "@leolucard",
+        data: "https://t.me/pyaeheintun1998",
       ),
     ],
   },

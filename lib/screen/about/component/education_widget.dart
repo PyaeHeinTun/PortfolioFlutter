@@ -25,6 +25,14 @@ class _EducationWidgetState extends State<EducationWidget> {
   GlobalKey listKey = GlobalKey();
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      Provider.of<MenuDrawerController>(context, listen: false).notifyAgain();
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
@@ -73,27 +81,25 @@ List<Widget> buildEducation({
 
 Widget buildVerticalLine(GlobalKey listKey, BuildContext context) {
   if (listKey.currentContext != null) {
-    try {
-      listKey.currentContext!.findRenderObject()!.paintBounds;
-      Provider.of<MenuDrawerController>(context, listen: false).notifyAgain();
+    final box = listKey.currentContext!.findRenderObject() as RenderBox;
 
-      final box = listKey.currentContext!.findRenderObject() as RenderBox;
-
-      return Container(
-        margin: const EdgeInsets.only(
-          left: 8,
-          top: 20,
-        ),
-        height: box.size.height,
-        width: 4,
-        decoration: BoxDecoration(
-          color: myData['colors']['primary_color'],
-          borderRadius: BorderRadius.circular(20),
-        ),
-      );
-    } catch (e) {
-      // ignore: avoid_print
-      print("object");
+    if (box.hasSize) {
+      try {
+        return Container(
+          margin: const EdgeInsets.only(
+            left: 8,
+            top: 20,
+          ),
+          height: box.size.height,
+          width: 4,
+          decoration: BoxDecoration(
+            color: myData['colors']['primary_color'],
+            borderRadius: BorderRadius.circular(20),
+          ),
+        );
+      } catch (e) {
+        return const SizedBox();
+      }
     }
   }
   return const SizedBox();

@@ -61,27 +61,27 @@ class ProgressIndicatorSkill extends StatefulWidget {
 
 class _ProgressIndicatorSkillState extends State<ProgressIndicatorSkill>
     with SingleTickerProviderStateMixin {
-  AnimationController? controller;
-  Animation<double>? animation;
+  // AnimationController? controller;
+  // Animation<double>? animation;
 
-  @override
-  void initState() {
-    super.initState();
-    controller = AnimationController(
-        duration: const Duration(milliseconds: 1000), vsync: this);
-    animation = Tween<double>(begin: 0.0, end: (widget.skillData.percent) / 100)
-        .animate(controller!)
-      ..addListener(() {
-        setState(() {});
-      });
-    controller!.forward();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  //   controller = AnimationController(
+  //       duration: const Duration(milliseconds: 1000), vsync: this);
+  //   animation = Tween<double>(begin: 0.0, end: (widget.skillData.percent) / 100)
+  //       .animate(controller!)
+  //     ..addListener(() {
+  //       setState(() {});
+  //     });
+  //   controller!.forward();
+  // }
 
-  @override
-  void dispose() {
-    controller!.dispose();
-    super.dispose();
-  }
+  // @override
+  // void dispose() {
+  //   controller!.dispose();
+  //   super.dispose();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -91,7 +91,8 @@ class _ProgressIndicatorSkillState extends State<ProgressIndicatorSkill>
       child: ClipRRect(
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         child: LinearProgressIndicator(
-          value: animation!.value,
+          // value: animation!.value,
+          value: widget.skillData.percent / 100,
           backgroundColor: myData['colors']['menu_color'],
           color: myData['colors']['primary_color'],
         ),

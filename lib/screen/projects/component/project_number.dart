@@ -17,7 +17,7 @@ class ProjectNumber extends StatelessWidget {
       "Project #${(projectData.index + 1)}",
       style: GoogleFonts.londrinaSketch(
         color: myData['colors']['text_color'],
-        fontSize: 80,
+        fontSize: 40,
         fontWeight: FontWeight.bold,
       ),
     );

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:portfolio_web/controller/project_controller.dart';
 import 'package:portfolio_web/my_data.dart';
 import 'package:portfolio_web/screen/projects/component/project_buttons.dart';
-import 'package:portfolio_web/screen/projects/component/project_image.dart';
 import 'package:portfolio_web/screen/projects/component/project_number.dart';
 import 'package:portfolio_web/screen/projects/component/project_title.dart';
 import 'package:portfolio_web/screen/projects/component/tech_used_list.dart';
@@ -37,8 +36,8 @@ List<Widget> buildProjectContent(BuildContext context) {
 
   for (var i = 0; i < projectList.length; i++) {
     if (currentIndex == i) {
-      widgetList.add(const SizedBox(height: 40));
-      widgetList.add(ProjectImage(projectData: projectList[i]));
+      // widgetList.add(const SizedBox(height: 40));
+      // widgetList.add(ProjectImage(projectData: projectList[i]));
       widgetList.add(const SizedBox(height: 40));
       widgetList.add(ProjectNumber(projectData: projectList[i]));
       widgetList.add(const SizedBox(height: 40));
