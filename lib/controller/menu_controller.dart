@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio_web/shared_component/decide_screen_type.dart';
 
 class MenuDrawerController extends ChangeNotifier {
   int selectedMenuIndex = 0;
   bool isOpenMenu = false;
   bool isMenuLoading = false;
+  ScreenType? screenType;
 
   AnimationController? drawerAnimationController;
   Animation<double>? drawerAnimation;
@@ -56,6 +58,16 @@ class MenuDrawerController extends ChangeNotifier {
     isOpenMenu = false;
     _reverseAnimationDrawer();
     notifyListeners();
+  }
+
+  void setScreenType(double width) {
+    if (DecideScreenType.decide(width) == ScreenType.small) {
+      screenType = ScreenType.small;
+    }
+
+    if (DecideScreenType.decide(width) == ScreenType.large) {
+      screenType = ScreenType.large;
+    }
   }
 
   void _reverseAnimationDrawer() {

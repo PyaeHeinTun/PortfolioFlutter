@@ -3,6 +3,7 @@ import 'package:portfolio_web/main_content.dart';
 import 'package:portfolio_web/controller/menu_controller.dart';
 import 'package:portfolio_web/menu/side_menu.dart';
 import 'package:portfolio_web/my_data.dart';
+import 'package:portfolio_web/shared_component/decide_screen_type.dart';
 import 'package:provider/provider.dart';
 
 class MainScreen extends StatefulWidget {
@@ -17,17 +18,26 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
   double? height;
   double? menuWidth;
 
-  @override
-  void didChangeDependencies() {
+  setScreenValue() {
     width = MediaQuery.of(context).size.width;
     height = MediaQuery.of(context).size.height;
-    menuWidth = width! / myData['menu']['menu_width'];
+    menuWidth = DecideScreenType.decide(width!) == ScreenType.small
+        ? width! / myData['menu']['menu_width']
+        : width! * 0.3;
 
+    Provider.of<MenuDrawerController>(context, listen: false)
+        .setScreenType(width!);
+  }
+
+  @override
+  void didChangeDependencies() {
+    setScreenValue();
     Provider.of<MenuDrawerController>(context, listen: false)
         .setUpDrawerAnimation(ticker: this, start: -width!, end: 0);
     Provider.of<MenuDrawerController>(context, listen: false)
         .setUpContentAnimation(
             ticker: this, start: width!, end: (width! - menuWidth!));
+
     super.didChangeDependencies();
   }
 
@@ -48,19 +58,25 @@ class _MainScreenState extends State<MainScreen> with TickerProviderStateMixin {
         children: [
           // Side Menu
           Positioned(
-            left: menuController.drawerAnimation!.value,
+            left: DecideScreenType.decide(width!) == ScreenType.small
+                ? menuController.drawerAnimation!.value
+                : 0,
             top: 0,
-            height: height,
-            width: menuWidth,
-            child: const SideMenu(),
+            height: height!,
+            width: menuWidth!,
+            child: SideMenu(
+              menuWidth: menuWidth!,
+            ),
           ),
-
           // Body Content
           Positioned(
             top: 0,
             right: 0,
             height: height,
-            width: menuController.contentAnimation!.value,
+            width: menuController.contentAnimation!.value -
+                (DecideScreenType.decide(width!) == ScreenType.large
+                    ? menuWidth!
+                    : 0),
             child: const MainContent(),
           ),
         ],
