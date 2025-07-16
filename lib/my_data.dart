@@ -14,24 +14,24 @@ Map<String, dynamic> myData = {
     "name": "Pyae Hein Tun",
     "title": "Software Engineer",
     "cv_url":
-        "https://drive.usercontent.google.com/u/0/uc?id=1lZJz7b190mjf756-wTrnKvPTAS4o8wPz&export=download",
+        "https://drive.usercontent.google.com/u/0/uc?id=1Lf-a_VPL22mhr3owJ4XMp2VmVBtpEuSK&export=download",
     "description":
         "I'm a Software Engineer with expertise in both frontend and backend development. I work with a variety of technologies to create full-stack solutions, building intuitive user interfaces and scalable server-side systems."
   },
   "about_content": {
     "info_list": [
       InfoData(name: "Birthday", data: "23 Apirl 1998"),
-      InfoData(name: "Age", data: "26"),
+      InfoData(name: "Age", data: "27"),
       InfoData(name: "Country", data: "Myanmar"),
       InfoData(name: "Language", data: "Myanmar,English,Japan"),
       InfoData(name: "Degree", data: "Mechatronics"),
-      InfoData(name: "Phone", data: "(+95) 9250968377"),
-      InfoData(name: "City", data: "Mandalay"),
+      InfoData(name: "Phone", data: "(+95) 0918901307"),
+      InfoData(name: "City", data: "Chiang Mai"),
       InfoData(name: "Status", data: "Single"),
     ],
     "skill_list": [
       SkillData(name: "JS", percent: 70),
-      SkillData(name: "Java", percent: 40),
+      SkillData(name: "React", percent: 60),
       SkillData(name: "Python", percent: 80),
       SkillData(name: "Dart", percent: 80),
     ],
